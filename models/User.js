@@ -19,10 +19,15 @@ const UserSchema = new Schema({
 {
     toJSON: {
         virtuals: true,
+        getters: true
     },
     id: false
 }
 );
+
+UserSchema.virtual('friendCount').get(function() {
+    return this.friends.length
+});
 
 // create the User model using the PizzaSchema
 const User = model('User', UserSchema)
