@@ -1,6 +1,17 @@
 const { Thought, User } = require("../models");
 
 const thoughtController = {
+  // get all thoughts
+  getAllThoughts(req, res) {
+    Thought.find()
+      .sort({ createdAt: -1 })
+      .then((dbThoughtData) => res.json(dbThoughtData))
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(400);
+      });
+  },
+
   // add thought to user
   addThought({ params, body }, res) {
     console.log(params);
