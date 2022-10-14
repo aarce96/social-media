@@ -8,12 +8,12 @@ const ReactionSchema = new Schema(
       default: () => new Types.ObjectId(),
     },
     reactionBody: {
-      type: string,
+      type: String,
       required: true,
       max: 280,
     },
-    username: {
-      type: string,
+    userName: {
+      type: String,
       required: true,
     },
     createdAt: {
@@ -43,7 +43,7 @@ const ThoughtSchema = new Schema(
       get: (createdAtVal) => dateFormat(createdAtVal),
     },
     username: {
-      type: string,
+      type: String,
       required: true,
     },
     // use ReactionSchema to validate data for a reaction
