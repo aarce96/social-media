@@ -42,7 +42,7 @@ const ThoughtSchema = new Schema(
       default: Date.now,
       get: (createdAtVal) => dateFormat(createdAtVal),
     },
-    username: {
+    userName: {
       type: String,
       required: true,
     },
