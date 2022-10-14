@@ -7,7 +7,7 @@ const thoughtController = {
     Thought.create(body)
       .then(({ _id }) => {
         return User.findOneAndUpdate(
-          { _id: params.UserId },
+          { _id: params.userId },
           { $push: { thoughts: _id } },
           { new: true }
         );
@@ -26,7 +26,7 @@ const thoughtController = {
   // add reaction to thought
   addReaction({ params, body }, res) {
     Thought.findOneAndUpdate(
-      { _id: params.ThoughtId },
+      { _id: params.thoughtId },
       { $push: { reactions: body } },
       { new: true, runValidators: true }
     )
